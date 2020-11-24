@@ -1,4 +1,4 @@
-const getDuplicateCharacters = (str) => {
+const getDuplicateCharactersWithCount = (str) => {
     const strArray = str.split('')
     const duplicateCharacters = []
     strArray.reduce((uniqueArray,char) => {
@@ -10,7 +10,7 @@ const getDuplicateCharacters = (str) => {
         return uniqueArray
     }, [])
 
-    const transformedDuplicateCharacters = duplicateCharacters.reduce((transformedArr, char) => {
+    const duplicateCharactersWithCount = duplicateCharacters.reduce((transformedArr, char) => {
         const charIndex = transformedArr.findIndex(item => item.char === char)
         if (charIndex > -1) {
             transformedArr[charIndex].count++
@@ -23,7 +23,7 @@ const getDuplicateCharacters = (str) => {
         return transformedArr
     }, [])
 
-    return transformedDuplicateCharacters
+    return duplicateCharactersWithCount
 }
 
-console.log(getDuplicateCharacters('asdf123asda'))
+console.log(getDuplicateCharactersWithCount('asdf123asda'))
